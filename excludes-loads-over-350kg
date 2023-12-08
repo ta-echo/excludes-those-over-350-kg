@@ -1,0 +1,43 @@
+<?php
+
+//You
+//Write a program in PHP that excludes loads over 350 kg.
+//ChatGPT
+//Certainly! Below is a simple example of a PHP program that filters loads and excludes those over 350 kg:
+
+// Sample array of loads with weights
+$loads = array(
+    array("item" => "Box 1", "weight" => 300),
+    array("item" => "Box 2", "weight" => 400),
+    array("item" => "Box 3", "weight" => 250),
+    array("item" => "Box 4", "weight" => 380),
+    array("item" => "Box 5", "weight" => 320)
+);
+
+// Function to filter loads based on weight
+function filterLoads($loads, $maxWeight) {
+    $filteredLoads = array();
+    
+    foreach ($loads as $load) {
+        if ($load['weight'] <= $maxWeight) {
+            $filteredLoads[] = $load;
+        }
+    }
+
+    return $filteredLoads;
+}
+
+// Maximum weight limit (350 kg)
+$maxWeightLimit = 350;
+
+// Filter loads
+$filteredLoads = filterLoads($loads, $maxWeightLimit);
+
+// Display the original and filtered loads
+echo "Original Loads:\n";
+print_r($loads);
+
+echo "\nFiltered Loads (excluding loads over $maxWeightLimit kg):\n";
+print_r($filteredLoads);
+
+?>
